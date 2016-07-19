@@ -1,18 +1,19 @@
 package com.ahmad.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
-@Repository
-public class UserLoginDAO {
+import com.ahmad.model.UserLogin;
 
-	
-	
-	public boolean loginControl(String userId, String password) {
-		if (userId.equals("a@g.c" ) && password.equals("ahmad") ){
-			return true;
-		} else {
-			return false;
-		}
-	}
+
+public interface UserLoginDAO {
+	void saveOrUpdate(UserLogin userLogin);
+
+	void delete(String id);
+
+	UserLogin get(String id);
+
+	public List<UserLogin> list();
 
 }
