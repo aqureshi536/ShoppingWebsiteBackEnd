@@ -54,7 +54,7 @@ public class UserLoginDAOImpl implements UserLoginDAO {
 	}
 
 	@Transactional
-	public List<UserLogin> list() {
+	public List<UserLogin> listUser() {
 		@SuppressWarnings("unchecked")
 		List<UserLogin> listUsers = (List<UserLogin>) sessionFactory.getCurrentSession().createCriteria(UserLogin.class)
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();

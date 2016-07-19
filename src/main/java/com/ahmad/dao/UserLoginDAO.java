@@ -14,6 +14,6 @@ public interface UserLoginDAO {
 
 	UserLogin get(String id);
 
-	public List<UserLogin> list();
+	public List<UserLogin> listUser();
 
 }

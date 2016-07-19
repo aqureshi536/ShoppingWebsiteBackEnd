@@ -16,10 +16,10 @@ public class UserTest {
 		UserLoginDAO userLoginDAO = (UserLoginDAO) context.getBean("userLoginDAO");
 
 		UserLogin userLogin = (UserLogin) context.getBean("userLogin");
-		userLogin.setUserId("002");
-		userLogin.setUsername("ahmadaa");
+		userLogin.setUserId("003");
+		userLogin.setUsername("ahmadsaa");
 		userLogin.setEnabled(true);
-		userLogin.setPassword("quareshi");
+		userLogin.setPassword("quareshidd");
 
 		// test case for insert or updating user
 
@@ -35,7 +35,7 @@ public class UserTest {
 
 		// Test case for delete user
 
-		userLoginDAO.delete("002");
+		//userLoginDAO.delete("002");
 		
 		
 	}

@@ -14,6 +14,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.ahmad.model.Category;
+import com.ahmad.model.Supplier;
 import com.ahmad.model.UserLogin;
 
 @Configuration
@@ -45,6 +47,8 @@ public class ApplicationConfig {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(UserLogin.class);
+		sessionBuilder.addAnnotatedClass(Supplier.class);
+		sessionBuilder.addAnnotatedClass(Category.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 
