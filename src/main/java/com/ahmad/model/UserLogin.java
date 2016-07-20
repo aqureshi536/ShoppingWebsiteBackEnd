@@ -48,4 +48,12 @@ public class UserLogin {
 		this.username = username;
 	}
 
+	@Override
+	public String toString() {
+		return "UserLogin [userId=" + userId + ", password=" + password + ", enabled=" + enabled + ", username="
+				+ username + "]";
+	}
+	
+	
+
 }

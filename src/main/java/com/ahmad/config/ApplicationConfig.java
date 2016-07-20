@@ -15,6 +15,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.ahmad.model.Category;
+import com.ahmad.model.Product;
 import com.ahmad.model.Supplier;
 import com.ahmad.model.UserLogin;
 
@@ -42,13 +43,14 @@ public class ApplicationConfig {
 	}
 
 	@Autowired
-	@Bean(name = "session")
+	@Bean(name = "sessionFactory")
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(UserLogin.class);
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Category.class);
+		sessionBuilder.addAnnotatedClass(Product.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 

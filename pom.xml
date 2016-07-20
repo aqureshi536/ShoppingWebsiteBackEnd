@@ -61,11 +61,12 @@
 			<version>1.4.192</version>
 		</dependency>
 
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-core</artifactId>
-    <version>5.2.1.Final</version>
-</dependency>
+         <!--  Hibernate Core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.1.Final</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>ShoppingWebsite</finalName>

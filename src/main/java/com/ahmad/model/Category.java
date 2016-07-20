@@ -56,4 +56,12 @@ public class Category {
 		this.supplierId = supplierId;
 	}
 
+	@Override
+	public String toString() {
+		return "Category [categoryId=" + categoryId + ", categoryName=" + categoryName + ", description=" + description
+				+ ", imageUrl=" + imageUrl + ", supplierId=" + supplierId + "]";
+	}
+	
+	
+
 }

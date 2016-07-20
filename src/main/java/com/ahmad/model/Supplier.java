@@ -66,4 +66,12 @@ public class Supplier {
 		this.imageUrl = imageUrl;
 	}
 
+	@Override
+	public String toString() {
+		return "Supplier [supplierId=" + supplierId + ", supplierName=" + supplierName + ", supplierContact="
+				+ supplierContact + ", supplierEmail=" + supplierEmail + ", supplierAddress=" + supplierAddress
+				+ ", imageUrl=" + imageUrl + "]";
+	}
+	
+
 }

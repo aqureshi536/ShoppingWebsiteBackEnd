@@ -15,7 +15,7 @@ public class CategoryTest {
 		Category category = (Category) context.getBean("category");
 		CategoryDAO categoryDAO=(CategoryDAO)context.getBean("categoryDAO");
 		
-		category.setCategoryId("cat-003");
+		category.setCategoryId("cat-004");
 		category.setCategoryName("second Category");
 		category.setDescription("This My secong Category");
 		category.setImageUrl("cat.jpg");
@@ -31,7 +31,7 @@ public class CategoryTest {
 			System.out.println("Category doesnt exist");
 		}
 		
-		categoryDAO.delete("cat-003");
+		//categoryDAO.delete("cat-003");
 		
 		System.out.println(categoryDAO.listCategory());
 	}
