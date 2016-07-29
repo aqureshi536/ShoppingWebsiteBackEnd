@@ -1,5 +1,6 @@
 package com.ahmad.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -16,7 +17,8 @@ public class Product {
 	private String description;
 	private String categoryId;
 	private String supplierId;
-	private boolean isInStock;
+	@Column(name = "out_off_stock")
+	private boolean isOutOffStock;
 	private String imageUrl;
 	private int quantity;
 	private double price;
@@ -61,12 +63,12 @@ public class Product {
 		this.supplierId = supplierId;
 	}
 
-	public boolean isInStock() {
-		return isInStock;
+	public boolean isOutOffStock() {
+		return isOutOffStock;
 	}
 
-	public void setInStock(boolean isInStock) {
-		this.isInStock = isInStock;
+	public void setOutOffStock(boolean isOutOffStock) {
+		this.isOutOffStock = isOutOffStock;
 	}
 
 	public String getImageUrl() {
@@ -96,8 +98,10 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productName=" + productName + ", description=" + description
-				+ ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", isInStock=" + isInStock
+				+ ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", isOutOffStock=" + isOutOffStock
 				+ ", imageUrl=" + imageUrl + ", quantity=" + quantity + ", price=" + price + "]";
 	}
+
+
 
 }

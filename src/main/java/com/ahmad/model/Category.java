@@ -13,7 +13,7 @@ public class Category {
 	@Id
 	private String categoryId;
 	private String categoryName;
-	private String description;
+	private String categoryDescription;
 	private String categoryImage;
 
 	public String getCategoryId() {
@@ -32,12 +32,12 @@ public class Category {
 		this.categoryName = categoryName;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getCategoryDescription() {
+		return categoryDescription;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setCategoryDescription(String categoryDescription) {
+		this.categoryDescription = categoryDescription;
 	}
 
 	public String getCategoryImage() {
@@ -50,9 +50,10 @@ public class Category {
 
 	@Override
 	public String toString() {
-		return "Category [categoryId=" + categoryId + ", categoryName=" + categoryName + ", description=" + description
-				+ ", categoryImage=" + categoryImage + "]";
+		return "Category [categoryId=" + categoryId + ", categoryName=" + categoryName + ", categoryDescription="
+				+ categoryDescription + ", categoryImage=" + categoryImage + "]";
 	}
 
 	
+
 }

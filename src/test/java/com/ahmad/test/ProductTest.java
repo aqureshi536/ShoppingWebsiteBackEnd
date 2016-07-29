@@ -14,20 +14,21 @@ public class ProductTest {
 
 		Product product =(Product) context.getBean("product");
 		ProductDAO productDAO = (ProductDAO)context.getBean("productDAO");
-	/*	
-		product.setProductId("pro-003");
-		product.setProductName("Product Name");
-		product.setDescription("This is  the second product");
-		product.setCategoryId("cat-002");
-		product.setSupplierId("SUP-001");
-		product.setImageUrl("product2.jpg");
-		product.setQuantity(15);
-		product.setPrice(78.95);
-		*/
+		
+		product.setProductId("PRD003");
+		product.setProductName("Bed1");
+		product.setDescription("This is  the first bed product");
+		product.setCategoryId("CAT002");
+		product.setSupplierId("SUP002");
+		product.setOutOffStock(false);
+		product.setImageUrl("beds-002.jpg");
+		product.setQuantity(23);
+		product.setPrice(52200);
+		
 		productDAO.saveOrUpdate(product);
 		System.out.println(productDAO.listProduct());
 		
-		if(productDAO.get("pro-002")!=null)
+		if(productDAO.get("PRD001")!=null)
 		{
 			System.out.println("Product Exist");
 		}
@@ -36,8 +37,8 @@ public class ProductTest {
 			System.out.println("Product not Exists");
 		}
 		
-		
-		productDAO.delete("pro-002");
+		System.out.println(productDAO.listProduct().size());
+		//productDAO.delete("pro-002");
 		
 		
 		

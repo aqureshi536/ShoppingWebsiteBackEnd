@@ -45,6 +45,6 @@ insert into supplier (supplierId,supplierName,supplierConact,supplierEmail,suppl
 insert into supplier (supplierId,supplierName,supplierConact,supplierEmail,supplierAddress,supplierImage) values ('SUP003','Ajit','8898000000','a@g.c','Konkan','no-image.jpg');
 
 
-insert into product (productId,productName,Description,categoryid,supplierid,out_off_stock,imageUrl,quantity,price) values ('PRD001','Curtain1','This belongs to curtain category','CAT001','SUP001',false,'no-image.jpg',10,5200);
-insert into product (productId,productName,Description,categoryid,supplierid,out_off_stock,imageUrl,quantity,price) values ('PRD002','Bed1','This belongs to Bed category','CAT002','SUP002',false,'no-image.jpg',23,52200);
-insert into product (productId,productName,Description,categoryid,supplierid,out_off_stock,imageUrl,quantity,price) values ('PRD003','Sofa1','This belongs to sofa category','CAT003','SUP003',true,'no-image.jpg',0,7200);
+insert into product (productId,productName,Description,categoryid,supplierid,out_off_stock,imageUrl,quantity,price) values ('PRD001','Curtain1','This belongs to curtain category','CAT001','SUP001',false,'curtains-001.jpg',10,5200);
+insert into product (productId,productName,Description,categoryid,supplierid,out_off_stock,imageUrl,quantity,price) values ('PRD002','Bed1','This belongs to Bed category','CAT002','SUP002',false,'beds-001.jpg',23,52200);
+insert into product (productId,productName,Description,categoryid,supplierid,out_off_stock,imageUrl,quantity,price) values ('PRD003','Sofa1','This belongs to sofa category','CAT003','SUP003',true,'sofa-001.jpg',0,7200);
