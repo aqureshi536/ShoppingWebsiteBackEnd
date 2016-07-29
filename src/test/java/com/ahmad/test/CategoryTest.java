@@ -14,13 +14,13 @@ public class CategoryTest {
 
 		Category category = (Category) context.getBean("category");
 		CategoryDAO categoryDAO=(CategoryDAO)context.getBean("categoryDAO");
-		
+		/*
 		category.setCategoryId("cat-004");
 		category.setCategoryName("second Category");
 		category.setDescription("This My secong Category");
 		category.setImageUrl("cat.jpg");
 		category.setSupplierId("SUP-003");
-		
+		*/
 		categoryDAO.saveOrUpdate(category);
 		
 		if(categoryDAO.get("cat-004")!=null)

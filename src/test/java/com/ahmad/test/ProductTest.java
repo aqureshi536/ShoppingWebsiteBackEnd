@@ -14,7 +14,7 @@ public class ProductTest {
 
 		Product product =(Product) context.getBean("product");
 		ProductDAO productDAO = (ProductDAO)context.getBean("productDAO");
-		
+	/*	
 		product.setProductId("pro-003");
 		product.setProductName("Product Name");
 		product.setDescription("This is  the second product");
@@ -23,7 +23,7 @@ public class ProductTest {
 		product.setImageUrl("product2.jpg");
 		product.setQuantity(15);
 		product.setPrice(78.95);
-		
+		*/
 		productDAO.saveOrUpdate(product);
 		System.out.println(productDAO.listProduct());
 		

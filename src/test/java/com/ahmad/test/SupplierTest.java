@@ -15,24 +15,24 @@ public class SupplierTest {
 
 		SupplierDAO supplierDAO = (SupplierDAO) context.getBean("supplierDAO");
 
-		supplier.setSupplierId("SUP-001");
+		supplier.setSupplierId("SUP-005");
 		supplier.setSupplierName("mUkesh");
 		supplier.setSupplierContact("9964663627");
 		supplier.setSupplierAddress("Peeli Gali");
 		supplier.setSupplierEmail("muk@g.c");
-		supplier.setImageUrl("bye.jpg");
+		supplier.setSupplierImage("bye.jpg");
 
 		supplierDAO.saveOrUpdate(supplier);
 
-		if (supplierDAO.get("SUP-003") != null)
+		if (supplierDAO.get("SUP003") != null)
 			System.out.println("Supplier Exist");
 		else
 		System.out.println("Supplier not Exist ");
 
 		
-			 supplierDAO.delete("SUP-001");
+			 //supplierDAO.delete("SUP-001");
 		 
-		 System.out.println(supplierDAO.listSupplier());
+		 System.out.println(supplierDAO.listSupplier().size());
 		 
 	}
 

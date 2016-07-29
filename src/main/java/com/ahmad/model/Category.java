@@ -5,16 +5,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
+
 @Entity
-@Table(name="category")
+@Table(name = "category")
 @Component
 public class Category {
 	@Id
 	private String categoryId;
 	private String categoryName;
 	private String description;
-	private String imageUrl;
-	private String supplierId;
+	private String categoryImage;
 
 	public String getCategoryId() {
 		return categoryId;
@@ -40,28 +40,19 @@ public class Category {
 		this.description = description;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	public String getCategoryImage() {
+		return categoryImage;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
-	public String getSupplierId() {
-		return supplierId;
-	}
-
-	public void setSupplierId(String supplierId) {
-		this.supplierId = supplierId;
+	public void setCategoryImage(String categoryImage) {
+		this.categoryImage = categoryImage;
 	}
 
 	@Override
 	public String toString() {
 		return "Category [categoryId=" + categoryId + ", categoryName=" + categoryName + ", description=" + description
-				+ ", imageUrl=" + imageUrl + ", supplierId=" + supplierId + "]";
+				+ ", categoryImage=" + categoryImage + "]";
 	}
-	
-	
 
+	
 }

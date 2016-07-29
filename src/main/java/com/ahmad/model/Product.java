@@ -16,6 +16,7 @@ public class Product {
 	private String description;
 	private String categoryId;
 	private String supplierId;
+	private boolean isInStock;
 	private String imageUrl;
 	private int quantity;
 	private double price;
@@ -60,6 +61,14 @@ public class Product {
 		this.supplierId = supplierId;
 	}
 
+	public boolean isInStock() {
+		return isInStock;
+	}
+
+	public void setInStock(boolean isInStock) {
+		this.isInStock = isInStock;
+	}
+
 	public String getImageUrl() {
 		return imageUrl;
 	}
@@ -87,8 +96,8 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productName=" + productName + ", description=" + description
-				+ ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", imageUrl=" + imageUrl + ", quantity="
-				+ quantity + ", price=" + price + "]";
+				+ ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", isInStock=" + isInStock
+				+ ", imageUrl=" + imageUrl + ", quantity=" + quantity + ", price=" + price + "]";
 	}
 
 }
