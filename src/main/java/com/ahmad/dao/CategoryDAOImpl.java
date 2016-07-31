@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ahmad.model.Category;
+import com.ahmad.model.Product;
 
 @Repository(value="categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
@@ -57,5 +58,29 @@ public class CategoryDAOImpl implements CategoryDAO {
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return listCategory;
 	}
+	
+	@Transactional
+	public List<Product> selectedCategoryProductList(String id)
+	{
+		String hql="from Product where categoryId=" + "'" + id + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Product> listSelectedProducts = query.getResultList();
+		return listSelectedProducts; 
+		
+	
+	}
+	
+	@Transactional
+	public int getProductCountByCategory(String id)
+	{
+		String hql="from Product where categoryId=" + "'" + id + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Product> listSelectedProducts = query.getResultList();
+		return listSelectedProducts.size(); 
+		
+	
+	}	
+	
 
+	
 }

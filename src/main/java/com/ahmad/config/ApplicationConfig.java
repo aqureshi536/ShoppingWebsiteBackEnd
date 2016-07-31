@@ -13,6 +13,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.MultipartResolver;
 
 import com.ahmad.model.Cart;
 import com.ahmad.model.Category;
@@ -45,6 +46,7 @@ public class ApplicationConfig {
 		return properties;
 	}
 
+
 	@Autowired
 	@Bean(name = "sessionFactory")
 	public SessionFactory getSessionFactory(DataSource dataSource) {
@@ -66,5 +68,10 @@ public class ApplicationConfig {
 		return transactionManager;
 
 	}
-
+	@Bean
+	public MultipartResolver multipartResolver() {
+	    org.springframework.web.multipart.commons.CommonsMultipartResolver multipartResolver = new org.springframework.web.multipart.commons.CommonsMultipartResolver();
+	    multipartResolver.setMaxUploadSize(1000000);
+	    return multipartResolver;
+	}
 }

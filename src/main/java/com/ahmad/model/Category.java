@@ -14,7 +14,7 @@ public class Category {
 	private String categoryId;
 	private String categoryName;
 	private String categoryDescription;
-	private String categoryImage;
+	private String  categoryImage;
 
 	public String getCategoryId() {
 		return categoryId;

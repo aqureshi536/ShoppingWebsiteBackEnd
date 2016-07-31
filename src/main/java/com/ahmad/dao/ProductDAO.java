@@ -13,4 +13,7 @@ public interface ProductDAO {
 	Product get(String id);
 	
 	List<Product> listProduct();
+	
+	
+	
 }

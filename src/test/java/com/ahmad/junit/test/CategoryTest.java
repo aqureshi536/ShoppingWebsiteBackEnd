@@ -38,4 +38,6 @@ public class CategoryTest {
 		String name=category.getCategoryName();
 		 assertEquals("This is a test for getting Name","Curtains",name);
 	}
+	
+	
 }

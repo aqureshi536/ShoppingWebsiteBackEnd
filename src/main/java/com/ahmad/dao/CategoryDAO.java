@@ -3,6 +3,7 @@ package com.ahmad.dao;
 import java.util.List;
 
 import com.ahmad.model.Category;
+import com.ahmad.model.Product;
 
 public interface CategoryDAO {
 
@@ -13,4 +14,8 @@ public interface CategoryDAO {
 	Category get(String id);
 	
 	public List<Category> listCategory();
+	
+	List<Product> selectedCategoryProductList(String id);
+	
+	int getProductCountByCategory(String id);	
 }

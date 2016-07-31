@@ -21,7 +21,7 @@ public class ProductTest {
 		product.setCategoryId("CAT002");
 		product.setSupplierId("SUP002");
 		product.setOutOffStock(false);
-		product.setImageUrl("beds-002.jpg");
+		
 		product.setQuantity(23);
 		product.setPrice(52200);
 		

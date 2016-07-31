@@ -1,10 +1,16 @@
 package com.ahmad.model;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -12,6 +18,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Product {
 	@Id
+	
 	private String productId;
 	private String productName;
 	private String description;
@@ -19,9 +26,12 @@ public class Product {
 	private String supplierId;
 	@Column(name = "out_off_stock")
 	private boolean isOutOffStock;
-	private String imageUrl;
+
 	private int quantity;
 	private double price;
+	
+	@Transient
+	private MultipartFile imageUrl;
 
 	public String getProductId() {
 		return productId;
@@ -71,11 +81,12 @@ public class Product {
 		this.isOutOffStock = isOutOffStock;
 	}
 
-	public String getImageUrl() {
+	
+	public MultipartFile getImageUrl() {
 		return imageUrl;
 	}
 
-	public void setImageUrl(String imageUrl) {
+	public void setImageUrl(MultipartFile imageUrl) {
 		this.imageUrl = imageUrl;
 	}
 
@@ -102,6 +113,13 @@ public class Product {
 				+ ", imageUrl=" + imageUrl + ", quantity=" + quantity + ", price=" + price + "]";
 	}
 
-
+	
+	public Product() {
+		
+		this.productId=UUID.randomUUID().toString().substring(24);
+		
+	}
+	
+	
 
 }
