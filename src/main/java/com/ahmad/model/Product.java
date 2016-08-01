@@ -116,7 +116,7 @@ public class Product {
 	
 	public Product() {
 		
-		this.productId=UUID.randomUUID().toString().substring(24);
+		this.productId="PRD"+UUID.randomUUID().toString().substring(24).toUpperCase();
 		
 	}
 	

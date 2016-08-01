@@ -18,7 +18,7 @@ public class CategoryTest {
 		category.setCategoryId("CAT004");
 		category.setCategoryName("Tables");
 		category.setCategoryDescription("This is a table category");
-		category.setCategoryImage("table.jpg");
+		
 		
 		
 		categoryDAO.saveOrUpdate(category);

@@ -1,10 +1,14 @@
 package com.ahmad.model;
 
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "category")
@@ -14,7 +18,9 @@ public class Category {
 	private String categoryId;
 	private String categoryName;
 	private String categoryDescription;
-	private String  categoryImage;
+
+	@Transient
+	private MultipartFile categoryImage;
 
 	public String getCategoryId() {
 		return categoryId;
@@ -40,11 +46,11 @@ public class Category {
 		this.categoryDescription = categoryDescription;
 	}
 
-	public String getCategoryImage() {
+	public MultipartFile getCategoryImage() {
 		return categoryImage;
 	}
 
-	public void setCategoryImage(String categoryImage) {
+	public void setCategoryImage(MultipartFile categoryImage) {
 		this.categoryImage = categoryImage;
 	}
 
@@ -54,6 +60,8 @@ public class Category {
 				+ categoryDescription + ", categoryImage=" + categoryImage + "]";
 	}
 
-	
-
+	public Category()
+	{
+		this.categoryId=UUID.randomUUID().toString().substring(24).toUpperCase();
+	}
 }
