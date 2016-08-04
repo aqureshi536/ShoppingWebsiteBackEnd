@@ -20,8 +20,7 @@ public class SupplierTest {
 		supplier.setSupplierContact("9964663627");
 		supplier.setSupplierAddress("Peeli Gali");
 		supplier.setSupplierEmail("muk@g.c");
-		supplier.setSupplierImage("bye.jpg");
-
+		
 		supplierDAO.saveOrUpdate(supplier);
 
 		if (supplierDAO.get("SUP003") != null)
