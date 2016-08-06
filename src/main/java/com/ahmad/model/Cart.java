@@ -1,52 +1,79 @@
 package com.ahmad.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.springframework.stereotype.Component;
-
-@Entity
-@Table(name="cart")
-@Component
 public class Cart {
+	private String cartId;
+	private Map<String, CartItem> cartItems;
+	private double grandTotal;
 
-	@Id
-	private String cartProductId;
-	private String cartProductName;
-	private String cartProductUser;
-	private double cartProductPrice;
-
-	public String getCartProductId() {
-		return cartProductId;
+	public String getCartId() {
+		return cartId;
 	}
 
-	public void setCartProductId(String cartProductId) {
-		this.cartProductId = cartProductId;
+	public void setCartId(String cartId) {
+		this.cartId = cartId;
 	}
 
-	public String getCartProductName() {
-		return cartProductName;
+	public Map<String, CartItem> getCartItems() {
+		return cartItems;
 	}
 
-	public void setCartProductName(String cartProductName) {
-		this.cartProductName = cartProductName;
+	public void setCartItems(Map<String, CartItem> cartItems) {
+		this.cartItems = cartItems;
 	}
 
-	public String getCartProductUser() {
-		return cartProductUser;
+	public double getGrandTotal() {
+		return grandTotal;
 	}
 
-	public void setCartProductUser(String cartProductUser) {
-		this.cartProductUser = cartProductUser;
+	public void setGrandTotal(double grandTotal) {
+		this.grandTotal = grandTotal;
 	}
 
-	public double getCartProductPrice() {
-		return cartProductPrice;
+	private Cart() {
+		cartItems = new HashMap<String, CartItem>();
+		grandTotal = 0;
+
 	}
 
-	public void setCartProductPrice(double cartProductPrice) {
-		this.cartProductPrice = cartProductPrice;
+	public Cart(String cartId){
+		this();
+		this.cartId= cartId;
 	}
-
+	
+	
+	
+	
+//    	Cart Methods
+	
+	public void addCartItems(CartItem cartItem)
+	{
+	String productId=cartItem.getProduct().getProductId();
+	
+	if(cartItems.containsKey(productId))
+	{
+		CartItem existingCartItem=cartItems.get(productId);
+		existingCartItem.setQuantity(existingCartItem.getQuantity()+cartItem.getQuantity());
+		cartItems.put(productId, existingCartItem);
+	}
+	
+	updateGrandTotal();
+	}
+	
+	public 	void removeCartItem(CartItem cartItem)
+	{
+		 String productId= cartItem.getProduct().getProductId();
+		 cartItems.remove(productId);
+		 updateGrandTotal();
+	}
+	
+	public void updateGrandTotal(){
+		grandTotal=0;
+		for(CartItem cartItem : cartItems.values())
+		{
+			 	grandTotal=grandTotal+cartItem.getTotalPrice();
+		}
+	}
 }
