@@ -1,4 +1,4 @@
-package com.ahmad.dao;
+package com.ahmad.dao.impl;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ahmad.dao.SupplierDAO;
 import com.ahmad.model.Supplier;
 
 @Repository(value="supplierDAO")

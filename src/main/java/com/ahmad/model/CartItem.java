@@ -25,9 +25,6 @@ public class CartItem {
 	public double getTotalPrice() {
 		return totalPrice;
 	}
-
-	
-	
 	
 	
 	
@@ -38,7 +35,6 @@ public class CartItem {
 	public CartItem(){}
 
 	public CartItem(Product product, int quantity, double totalPrice) {
-		super();
 		this.product = product;
 		this.quantity = quantity;
 		this.totalPrice = totalPrice;
