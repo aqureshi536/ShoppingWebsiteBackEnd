@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,7 +17,11 @@ import org.springframework.web.multipart.MultipartFile;
 public class Category {
 	@Id
 	private String categoryId;
+	
+	@NotBlank(message="Give category a name")
 	private String categoryName;
+	
+	@NotBlank(message="Give a category description")
 	private String categoryDescription;
 
 	@Transient
@@ -62,6 +67,6 @@ public class Category {
 
 	public Category()
 	{
-		this.categoryId=UUID.randomUUID().toString().substring(24).toUpperCase();
+		this.categoryId="CAT"+UUID.randomUUID().toString().substring(24).toUpperCase();
 	}
 }

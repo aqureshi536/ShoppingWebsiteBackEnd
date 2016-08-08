@@ -10,21 +10,21 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class UserDetails {
+public class Customer {
 	@Id
-	private String userId;
-	@Column(name="phone_no")
+	private String customerId;
+	@Column(name = "phone_no")
 	private String phoneNo;
 	private String gender;
 	private String password;
 	private String userName;
 
-	public String getUserId() {
-		return userId;
+	public String getCustomerId() {
+		return customerId;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
 	}
 
 	public String getPhoneNo() {
@@ -58,13 +58,10 @@ public class UserDetails {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-//public UserDetails()
-//{
-//	
-//}
-//	public UserDetails(String userId) {
-//		
-//		this.userId = userId;
-//	}
+	
+	
+	public Customer(){
+		this.customerId="CUST"+UUID.randomUUID().toString().substring(24).toUpperCase();
+	}
 
 }

@@ -18,8 +18,10 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.MultipartResolver;
 
-
+import com.ahmad.model.Cart;
+import com.ahmad.model.CartItem;
 import com.ahmad.model.Category;
+import com.ahmad.model.Customer;
 import com.ahmad.model.Product;
 import com.ahmad.model.Supplier;
 
@@ -59,8 +61,9 @@ public class ApplicationConfig {
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Category.class);
 		sessionBuilder.addAnnotatedClass(Product.class);
-		
-		
+		sessionBuilder.addAnnotatedClass(Customer.class);
+		sessionBuilder.addAnnotatedClass(Cart.class);
+		sessionBuilder.addAnnotatedClass(CartItem.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 

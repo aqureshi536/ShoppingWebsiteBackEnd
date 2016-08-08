@@ -4,14 +4,14 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
 
-import org.springframework.web.multipart.MultipartFile;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "product")
@@ -20,14 +20,23 @@ public class Product {
 	@Id
 	
 	private String productId;
+	@NotBlank(message="Give Product a name")
 	private String productName;
+	@NotBlank(message="Give product a description")
 	private String description;
+	
+	@NotBlank(message="Select a category")
 	private String categoryId;
+	
+	@NotBlank(message="Select a supplier")
 	private String supplierId;
 	@Column(name = "out_off_stock")
 	private boolean isOutOffStock;
 
+	@Min(value=0,message="Cannot give a quantity less than zero")
 	private int quantity;
+	
+	@Min(value=500,message="Price cannot be less than 500")
 	private double price;
 	
 	@Transient

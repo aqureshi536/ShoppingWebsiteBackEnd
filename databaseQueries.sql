@@ -6,11 +6,11 @@ productName varchar(100) not null ,
 categoryid varchar(20),
 supplierid varchar(20) ,
 out_off_stock boolean not null,
- imageUrl varchar,
+
 quantity decimal(20),
 price decimal(10,2),
 Constraint pk_product_productid primary key (productId),
-Contraint fk_product_categoryid FOREIGN KEY(categoryid) references category(categoryid)on delete set null,
+Constraint fk_product_categoryid FOREIGN KEY(categoryid) references category(categoryid)on delete set null,
 constraint fk_product_supplierid Foreign key(supplierId) references supplier(supplierId)
 on delete set null
 );
@@ -35,6 +35,41 @@ categoryImage varchar ,
 constraint pk_category_categoryId primary key (categoryId),
 
 );
+
+create table customer(
+customerId varchar(20),
+phoneNo varchar(10) not null,
+gender varchar(10) not null,
+password varchar(100) not null,
+userName varchar(100) not null,
+constraint pk_customer_customerId primary key(customerId));
+
+
+
+create table cart(
+cartId varchar(20),
+customerId varchar(20),
+grandTotal decimal(10),
+noOfProducts decimal(3),
+constraint pk_cart_cartId primary key (cartId),
+constraint fk_cart_userName foreign key (customerId) references customer(customerId)
+);
+
+
+create table cartItem(
+cartItemId varchar(20),
+productId varchar(20),
+customerId varchar(20),
+cartId varchar(20),
+quantity decimal(10),
+totalPrice decimal(3,2),
+constraint pk_cartItem_cartLineId primary key (cartItemId),
+constraint fk_cartItem_productId foreign key (productId) references product(productId),
+constraint fk_cartItem_userName foreign key (customerId) references customer(customerId),
+constraint fk_cartItem_cartId foreign key (cartId) references cart(cartId)
+);
+
+insert into customer (customerId,phoneNo,gender,password,userName) values ('CUST001','9892000000','male','123456','a@g.c');
 
 insert into category (categoryId,categoryName,categoryDescription,categoryImage) values ('CAT001','Curtains','This is a curtain category','no-image.jpg');
 insert into category (categoryId,categoryName,categoryDescription,categoryImage) values ('CAT002','Beds','This is a bed category','no-image.jpg');

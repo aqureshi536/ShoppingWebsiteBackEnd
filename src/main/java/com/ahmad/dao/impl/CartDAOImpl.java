@@ -1,43 +1,51 @@
 package com.ahmad.dao.impl;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ahmad.dao.CartDAO;
 import com.ahmad.model.Cart;
 
+@Repository("cartDAO")
 public class CartDAOImpl implements CartDAO {
 
-	// Gets the whole cart and assign to the map
-	private Map<String, Cart> listOfCarts;
+	@Autowired
+	SessionFactory sessionFactory;
 
-	public CartDAOImpl() {
-		listOfCarts = new HashMap<>();
+	public CartDAOImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 
-	@Override
-	public Cart createCart(Cart cart) {
-		if(listOfCarts.containsKey(cart.getCartId())){
-			throw new IllegalArgumentException(String.format("Cannot create cart with with id",cart.getCartId()));
-		}
-		return null;
+	@Transactional
+	public void saveOrUpdate(Cart cart) {
+		sessionFactory.getCurrentSession().saveOrUpdate(cart);
 	}
 
-	@Override
-	public Cart read(String cartId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void update(String cartId, Cart cart) {
-		// TODO Auto-generated method stub
+	@Transactional
+	public void delete(String cartId) {
+		sessionFactory.getCurrentSession().delete(cartId);
 
 	}
 
-	@Override
-	public void delete(String Id) {
-		// TODO Auto-generated method stub
+	@Transactional
+	public Cart getCartByCustomerId(String customerId) {
+		String hql = "from Cart where customerId=" + "'" + customerId + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		Cart cartByCustomerId = (Cart) query.getResultList();
+		return cartByCustomerId;
+	}
+
+	@Transactional
+	public List<Cart> listCart() {
+		String hql = "from Cart";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Cart> listOfCarts = query.getResultList();
+		return listOfCarts;
 
 	}
 

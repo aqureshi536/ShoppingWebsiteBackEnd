@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,9 +18,17 @@ import org.springframework.web.multipart.MultipartFile;
 public class Supplier {
 	@Id
 	private String supplierId;
+	
+	@NotBlank(message="Please give a supplier name")
 	private String supplierName;
+	
+	@NotBlank(message="Enter a contact no")
 	private String supplierContact;
+
+	@NotBlank(message="Enter a email Id")
 	private String supplierEmail;
+	
+	@NotBlank(message="Give supplier a address")
 	private String supplierAddress;
 	
 	@Transient
@@ -82,7 +91,7 @@ public class Supplier {
 
 	public Supplier()
 	{
-		this.supplierId=UUID.randomUUID().toString().substring(24).toUpperCase();
+		this.supplierId="SUPP"+UUID.randomUUID().toString().substring(24).toUpperCase();
 	}
 	
 }
