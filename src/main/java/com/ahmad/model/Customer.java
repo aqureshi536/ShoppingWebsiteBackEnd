@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class Customer {
 	@Id
 	private String customerId;
-	@Column(name = "phone_no")
+	
 	private String phoneNo;
 	private String gender;
 	private String password;

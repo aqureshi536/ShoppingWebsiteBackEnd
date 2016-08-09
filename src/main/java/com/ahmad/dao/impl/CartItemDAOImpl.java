@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ahmad.dao.CartItemDAO;
 import com.ahmad.model.CartItem;
@@ -20,18 +21,18 @@ public class CartItemDAOImpl implements CartItemDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Override
+	@Transactional
 	public void saveOrUpdate(CartItem cartItem) {
 		sessionFactory.getCurrentSession().saveOrUpdate(cartItem);
 
 	}
 
-	@Override
+	@Transactional
 	public void delete(String cartItemId) {
 		sessionFactory.getCurrentSession().delete(cartItemId);
 	}
 
-	@Override
+	@Transactional
 	public List<CartItem> getCartItemsByCustomerId(String customerId) {
 		String hql = "from CartItem where customerId=" + "'" + customerId + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);

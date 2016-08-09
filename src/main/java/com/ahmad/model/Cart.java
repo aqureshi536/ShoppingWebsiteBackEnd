@@ -14,8 +14,8 @@ public class Cart {
 	private String cartId;
 	
 	private String customerId;
-	private String grandTotal;
-	private String noOfProducts;
+	private double grandTotal;
+	private int noOfProducts;
 
 	public String getCartId() {
 		return cartId;
@@ -33,19 +33,20 @@ public class Cart {
 		this.customerId = customerId;
 	}
 
-	public String getGrandTotal() {
+
+	public double getGrandTotal() {
 		return grandTotal;
 	}
 
-	public void setGrandTotal(String grandTotal) {
+	public void setGrandTotal(double grandTotal) {
 		this.grandTotal = grandTotal;
 	}
 
-	public String getNoOfProducts() {
+	public int getNoOfProducts() {
 		return noOfProducts;
 	}
 
-	public void setNoOfProducts(String noOfProducts) {
+	public void setNoOfProducts(int noOfProducts) {
 		this.noOfProducts = noOfProducts;
 	}
 

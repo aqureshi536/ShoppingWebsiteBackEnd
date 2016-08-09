@@ -10,35 +10,49 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ahmad.dao.CustomerDAO;
 import com.ahmad.model.Customer;
+
 @Repository("customerDAO")
 public class CustomerDAOImpl implements CustomerDAO {
 
 	@Autowired
 	SessionFactory sessionFactory;
-	
-	public CustomerDAOImpl(SessionFactory sessionFactory)
-	{
-		this.sessionFactory=sessionFactory;
+
+	public CustomerDAOImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
-	
+
 	@Transactional
 	public void saveOrUpdate(Customer customer) {
 		sessionFactory.getCurrentSession().saveOrUpdate(customer);
-		
+
 	}
 
 	@Transactional
 	public Customer get(String customerId) {
-		return sessionFactory.getCurrentSession().get(Customer.class,customerId);
-		
+		return sessionFactory.getCurrentSession().get(Customer.class, customerId);
+
 	}
 
 	@Override
 	public List<Customer> listCustomer() {
 		String hql = "from Customer";
-		Query query= sessionFactory.getCurrentSession().createQuery(hql);
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<Customer> listOfCustomers = query.getResultList();
 		return listOfCustomers;
+	}
+
+	@Transactional
+	public Customer getCustomerByUserName(String userName) {
+		String hql = "from Customer where userName=" + "'" + userName + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Customer> listOfCustomers = query.getResultList();
+		if (listOfCustomers != null && !listOfCustomers.isEmpty()){
+			return  listOfCustomers.get(0);
+		}
+			
+		
+		return null;
+
 	}
 
 }

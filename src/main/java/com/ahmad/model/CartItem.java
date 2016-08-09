@@ -14,9 +14,10 @@ public class CartItem {
 	private String cartItemId;
 	
 	private String cartId;
+	private String customerId;
 	private String productId;
-	private String quantity;
-	private String totalPrice;
+	private int quantity;
+	private double totalPrice;
 
 	public String getCartItemId() {
 		return cartItemId;
@@ -33,6 +34,16 @@ public class CartItem {
 	public void setCartId(String cartId) {
 		this.cartId = cartId;
 	}
+	
+	
+
+	public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
 
 	public String getProductId() {
 		return productId;
@@ -42,24 +53,26 @@ public class CartItem {
 		this.productId = productId;
 	}
 
-	public String getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
-	}
-
-	public String getTotalPrice() {
-		return totalPrice;
-	}
-
-	public void setTotalPrice(String totalPrice) {
-		this.totalPrice = totalPrice;
-	}
+	
 
 	public CartItem() {
 		this.cartItemId ="CRTITEM" +UUID.randomUUID().toString().substring(24).toUpperCase();
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 	/*

@@ -36,8 +36,11 @@ public class CartDAOImpl implements CartDAO {
 	public Cart getCartByCustomerId(String customerId) {
 		String hql = "from Cart where customerId=" + "'" + customerId + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		Cart cartByCustomerId = (Cart) query.getResultList();
-		return cartByCustomerId;
+		List<Cart> customerList= query.getResultList();
+		if(customerList!=null && !customerList.isEmpty())			
+		return customerList.get(0);
+		
+		return null;
 	}
 
 	@Transactional
