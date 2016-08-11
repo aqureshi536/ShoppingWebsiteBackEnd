@@ -12,6 +12,6 @@ public interface CartItemDAO {
 	
 	List<CartItem> getCartItemsByCustomerId(String customerId);
 	
-	
+	List<CartItem> listCartItems();
 	
 }

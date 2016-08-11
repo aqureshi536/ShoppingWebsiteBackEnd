@@ -24,7 +24,7 @@ public class CartItem {
 	
 	
 	
-	@Transient
+	/*@Transient
 	Product product;
 	public Product getProduct() {
 		return product;
@@ -32,7 +32,7 @@ public class CartItem {
 
 	public void setProduct(Product product) {
 		this.product = product;
-	}
+	}*/
 	
 	
 	

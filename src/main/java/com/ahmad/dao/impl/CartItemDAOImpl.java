@@ -40,4 +40,13 @@ public class CartItemDAOImpl implements CartItemDAO {
 		return listOfCartItems;
 	}
 
+	@Transactional
+	public List<CartItem> listCartItems(){
+		String hql= "from CartItem";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<CartItem> cartItems = query.getResultList();
+		return cartItems;	
+				
+	}
+	
 }
