@@ -44,6 +44,7 @@
 			<version>4.3.1.RELEASE</version>
 		</dependency>
 
+	
 		<!-- hibernate core It is a hibernate dependency -->
 
 

@@ -52,7 +52,7 @@ customerId varchar(20),
 grandTotal decimal(10),
 noOfProducts decimal(3),
 constraint pk_cart_cartId primary key (cartId),
-constraint fk_cart_userName foreign key (customerId) references customer(customerId)
+constraint fk_cart_userName foreign key (customerId) references customer(customerId) on delete cascade
 );
 
 
@@ -64,12 +64,24 @@ cartId varchar(20),
 quantity decimal(10),
 totalPrice decimal(20,2),
 constraint pk_cartItem_cartLineId primary key (cartItemId),
-constraint fk_cartItem_productId foreign key (productId) references product(productId),
-constraint fk_cartItem_userName foreign key (customerId) references customer(customerId),
-constraint fk_cartItem_cartId foreign key (cartId) references cart(cartId)
+constraint fk_cartItem_productId foreign key (productId) references product(productId) on delete set null,
+constraint fk_cartItem_userName foreign key (customerId) references customer(customerId) on delete cascade,
+constraint fk_cartItem_cartId foreign key (cartId) references cart(cartId)on delete cascade 
 );
 
+ALTER TABLE table_name
+ADD CONSTRAINT constraint_name
+   FOREIGN KEY (column1, column2, ... column_n)
+   REFERENCES parent_table (column1, column2, ... column_n)
+   ON DELETE SET NULL;
+
 insert into customer (customerId,phoneNo,gender,password,userName) values ('CUST001','9892000000','male','123456','a@g.c');
+
+insert into users(username,password,enabled) values ('sanjeev','sanjeev',true);
+
+insert into user_authorities (username,authority) values ('admin','ROLE_ADMIN');
+insert into user_authorities (username,authority) values ('ahmad','ROLE_USER');
+insert into user_authorities (username,authority) values ('sanjeev','ROLE_USER');
 
 insert into category (categoryId,categoryName,categoryDescription,categoryImage) values ('CAT001','Curtains','This is a curtain category','no-image.jpg');
 insert into category (categoryId,categoryName,categoryDescription,categoryImage) values ('CAT002','Beds','This is a bed category','no-image.jpg');

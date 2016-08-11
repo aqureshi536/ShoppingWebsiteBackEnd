@@ -20,8 +20,8 @@ public class CategoryTest {
 		category.setCategoryDescription("This is a table category");
 		
 		
-		
-		categoryDAO.saveOrUpdate(category);
+		categoryDAO.selectedCategoryProductList("E9F38EDEC1B3");
+		//categoryDAO.saveOrUpdate(category);
 		
 		if(categoryDAO.get("cat-004")!=null)
 		{
