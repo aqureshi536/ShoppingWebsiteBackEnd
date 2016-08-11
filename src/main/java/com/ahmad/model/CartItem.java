@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
 
@@ -16,8 +17,27 @@ public class CartItem {
 	private String cartId;
 	private String customerId;
 	private String productId;
+	
+
 	private int quantity;
 	private double totalPrice;
+	
+	
+	
+	@Transient
+	Product product;
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	
+	
+	
+	
+	
 
 	public String getCartItemId() {
 		return cartItemId;

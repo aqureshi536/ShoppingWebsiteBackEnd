@@ -38,7 +38,7 @@ public class CartDAOImpl implements CartDAO {
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<Cart> customerList= query.getResultList();
 		if(customerList!=null && !customerList.isEmpty())			
-		return customerList.get(0);
+			return customerList.get(0);
 		
 		return null;
 	}
