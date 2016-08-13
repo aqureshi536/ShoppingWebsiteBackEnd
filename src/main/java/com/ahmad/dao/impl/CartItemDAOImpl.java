@@ -29,7 +29,9 @@ public class CartItemDAOImpl implements CartItemDAO {
 
 	@Transactional
 	public void delete(String cartItemId) {
-		sessionFactory.getCurrentSession().delete(cartItemId);
+		CartItem cartItemToDelete = new CartItem();
+		cartItemToDelete.setCartItemId(cartItemId);
+		sessionFactory.getCurrentSession().delete(cartItemToDelete);
 	}
 
 	@Transactional
@@ -41,12 +43,27 @@ public class CartItemDAOImpl implements CartItemDAO {
 	}
 
 	@Transactional
-	public List<CartItem> listCartItems(){
-		String hql= "from CartItem";
-		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+	public List<CartItem> listCartItems() {
+		String hql = "from CartItem";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<CartItem> cartItems = query.getResultList();
-		return cartItems;	
-				
+		return cartItems;
+
+	}
+
+	@Transactional
+	public CartItem getCartItem(String cartItemId) {
+		String hql = "from CartItem where cartItemId=" + "'" + cartItemId + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<CartItem> cartItemList = query.getResultList();
+		if(cartItemList!=null && !cartItemList.isEmpty())
+			return cartItemList.get(0);
+		return null;
 	}
 	
-}
+	
+	
+		
+	}
+
+
