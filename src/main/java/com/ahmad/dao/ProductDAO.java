@@ -14,6 +14,6 @@ public interface ProductDAO {
 	
 	List<Product> listProduct();
 	
-	
+	List<Product> listProductByStock();
 	
 }

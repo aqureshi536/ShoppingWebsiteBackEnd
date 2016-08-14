@@ -52,6 +52,12 @@ public class ProductDAOImpl implements ProductDAO {
 		return listProducts;
 	}
 
-	
+	@Transactional
+	public List<Product> listProductByStock() {
+		String hql = "from Product where isOutOffStock=" + "'" + false + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Product> listOfProductsByStock = query.getResultList();
+		return listOfProductsByStock;
+	}
 
 }

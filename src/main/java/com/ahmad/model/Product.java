@@ -82,7 +82,7 @@ public class Product {
 		this.supplierId = supplierId;
 	}
 
-	public boolean isOutOffStock() {
+	public boolean getIsOutOffStock() {
 		return isOutOffStock;
 	}
 
