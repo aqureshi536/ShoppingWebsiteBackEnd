@@ -48,7 +48,7 @@ constraint pk_customer_customerId primary key(customerId));
 
 create table cart(
 cartId varchar(20) not null,
-customerId varchar(20) not null,
+customerId varchar(20) not null unique,
 grandTotal decimal(10),
 noOfProducts decimal(3),
 constraint pk_cart_cartId primary key (cartId),

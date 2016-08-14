@@ -46,7 +46,7 @@ public class ApplicationConfig {
 	private Properties getHibernateProperties() {
 		Properties properties = new Properties();
 		properties.put("hibernate.show_sql", "true");
-		properties.put("format_sql", "true");
+		properties.put("hibernate.format_sql", "true");
 		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		return properties;
 	}
