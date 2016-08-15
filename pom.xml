@@ -16,9 +16,10 @@
 
 	<dependencies>
 		<dependency>
+
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -44,7 +45,15 @@
 			<version>4.3.1.RELEASE</version>
 		</dependency>
 
-	
+		<!-- Servlet api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+
+
 		<!-- hibernate core It is a hibernate dependency -->
 
 

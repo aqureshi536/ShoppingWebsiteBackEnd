@@ -15,7 +15,11 @@ public class ProductTest {
 		Product product =(Product) context.getBean("product");
 		ProductDAO productDAO = (ProductDAO)context.getBean("productDAO");
 		
-		product.setProductId("PRD003");
+		
+		productDAO.similarProducts("PRDE980E13FFCA0");
+		
+		
+	/*	product.setProductId("PRD003");
 		product.setProductName("Bed1");
 		product.setDescription("This is  the first bed product");
 		product.setCategoryId("CAT002");
@@ -39,7 +43,7 @@ public class ProductTest {
 		
 		System.out.println(productDAO.listProduct().size());
 		//productDAO.delete("pro-002");
-		
+*/		
 		
 		
 	}
