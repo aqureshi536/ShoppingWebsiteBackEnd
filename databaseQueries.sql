@@ -76,7 +76,7 @@ ADD CONSTRAINT constraint_name
    ON DELETE SET NULL;
 
 insert into customer (customerId,phoneNo,gender,password,userName) values ('CUST001','9892000000','male','123456','a@g.c');
-
+insert into user_authorities(username,authority) values ('dummy','ROLE_USER');
 insert into users(username,password,enabled) values ('sanjeev','sanjeev',true);
 
 insert into user_authorities (username,authority) values ('admin','ROLE_ADMIN');
