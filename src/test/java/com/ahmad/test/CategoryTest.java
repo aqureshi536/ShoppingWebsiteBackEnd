@@ -15,9 +15,9 @@ public class CategoryTest {
 		Category category = (Category) context.getBean("category");
 		CategoryDAO categoryDAO=(CategoryDAO)context.getBean("categoryDAO");
 		
-		category.setCategoryId("CAT004");
+		/*category.setCategoryId("CAT004");
 		category.setCategoryName("Tables");
-		category.setCategoryDescription("This is a table category");
+		category.setCategoryDescription("This is a table category");*/
 		
 		
 		categoryDAO.selectedCategoryProductList("E9F38EDEC1B3");
