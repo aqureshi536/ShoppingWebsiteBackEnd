@@ -17,6 +17,8 @@ public class BillingAddress {
 	@NotBlank
 	private String line1;
 	@NotBlank
+	private String line2;
+	@NotBlank
 	private String city;
 	@NotBlank
 	private String state;

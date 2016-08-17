@@ -69,6 +69,33 @@ constraint fk_cartItem_userName foreign key (customerId) references customer(cus
 constraint fk_cartItem_cartId foreign key (cartId) references cart(cartId)on delete cascade 
 );
 
+
+
+create table shippingAddress(
+shippingAddressId varchar(20),
+customerId varchar(20),
+line1 varchar(1000) not null,
+line2 varchar(1000) not null,
+city varchar(30) not null,
+state varchar(25) not null,
+country varchar(15) not null,
+zipCode varchar(7) not null,
+constraint fk_shippingAddress_customerId foreign key (customerId) references customer(customerId) on delete cascade
+);
+
+
+create table billingAddress(
+billingAddressId varchar(20),
+customerId varchar(20),
+line1 varchar(1000) not null,
+line2 varchar(1000) not null,
+city varchar(30) not null,
+state varchar(25) not null,
+country varchar(15) not null,
+zipCode varchar(7) not null,
+constraint fk_billingAddress_customerId foreign key (customerId) references customer(customerId) on delete cascade
+);
+
 ALTER TABLE table_name
 ADD CONSTRAINT constraint_name
    FOREIGN KEY (column1, column2, ... column_n)

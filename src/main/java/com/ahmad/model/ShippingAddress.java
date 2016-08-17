@@ -17,6 +17,8 @@ public class ShippingAddress {
 	@NotBlank
 	private String line1;
 	@NotBlank
+	private String line2;
+	@NotBlank
 	private String city;
 	@NotBlank
 	private String state;
@@ -47,6 +49,16 @@ public class ShippingAddress {
 
 	public void setLine1(String line1) {
 		this.line1 = line1;
+	}
+	
+	
+
+	public String getLine2() {
+		return line2;
+	}
+
+	public void setLine2(String line2) {
+		this.line2 = line2;
 	}
 
 	public String getCity() {
