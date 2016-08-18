@@ -6,5 +6,5 @@ public interface UsersDAO {
 
 	void saveOrUpdate(Users users);
 	
-	void delete(String username);
+	void delete(String customerId);
 }

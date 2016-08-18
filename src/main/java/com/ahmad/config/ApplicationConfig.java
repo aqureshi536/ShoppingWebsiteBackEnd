@@ -24,6 +24,8 @@ import com.ahmad.model.Category;
 import com.ahmad.model.Customer;
 import com.ahmad.model.Product;
 import com.ahmad.model.Supplier;
+import com.ahmad.model.UserAuthorities;
+import com.ahmad.model.Users;
 
 
 @Configuration
@@ -56,7 +58,9 @@ public class ApplicationConfig {
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
-	/*	sessionBuilder.addAnnotatedClass(Users.class);*/
+		
+		sessionBuilder.addAnnotatedClass(Users.class);
+		sessionBuilder.addAnnotatedClass(UserAuthorities.class);
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Category.class);
 		sessionBuilder.addAnnotatedClass(Product.class);

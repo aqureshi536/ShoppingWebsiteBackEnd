@@ -102,6 +102,9 @@ ADD CONSTRAINT constraint_name
    REFERENCES parent_table (column1, column2, ... column_n)
    ON DELETE SET NULL;
 
+   
+   delete from customer where username='s@g.c';
+   
 insert into customer (customerId,phoneNo,gender,password,userName) values ('CUST001','9892000000','male','123456','a@g.c');
 insert into user_authorities(username,authority) values ('dummy','ROLE_USER');
 insert into users(username,password,enabled) values ('sanjeev','sanjeev',true);

@@ -1,7 +1,17 @@
 package com.ahmad.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name="user_authorities")
+@Component
 public class UserAuthorities {
 	private String customerId;
+	@Id
 	private String username;
 	private String authority;
 
