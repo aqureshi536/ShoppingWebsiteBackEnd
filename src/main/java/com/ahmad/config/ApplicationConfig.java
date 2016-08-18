@@ -25,7 +25,6 @@ import com.ahmad.model.Customer;
 import com.ahmad.model.Product;
 import com.ahmad.model.Supplier;
 
-import com.ahmad.model.UserLogin;
 
 @Configuration
 @ComponentScan("com.ahmad")
@@ -57,7 +56,7 @@ public class ApplicationConfig {
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
-		sessionBuilder.addAnnotatedClass(UserLogin.class);
+	/*	sessionBuilder.addAnnotatedClass(Users.class);*/
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Category.class);
 		sessionBuilder.addAnnotatedClass(Product.class);
