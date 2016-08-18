@@ -18,6 +18,7 @@ public class BillingAddress {
 	private String line1;
 	@NotBlank
 	private String line2;
+
 	@NotBlank
 	private String city;
 	@NotBlank
@@ -51,6 +52,14 @@ public class BillingAddress {
 		this.line1 = line1;
 	}
 
+	public String getLine2() {
+		return line2;
+	}
+
+	public void setLine2(String line2) {
+		this.line2 = line2;
+	}
+
 	public String getCity() {
 		return city;
 	}
@@ -82,10 +91,9 @@ public class BillingAddress {
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
-	
-	public BillingAddress()
-	{
-		this.billingAddressId=UUID.randomUUID().toString().substring(24).toUpperCase();
+
+	public BillingAddress() {
+		this.billingAddressId = "BILL" + UUID.randomUUID().toString().substring(24).toUpperCase();
 	}
 
 }

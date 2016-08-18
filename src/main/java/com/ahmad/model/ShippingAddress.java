@@ -50,8 +50,6 @@ public class ShippingAddress {
 	public void setLine1(String line1) {
 		this.line1 = line1;
 	}
-	
-	
 
 	public String getLine2() {
 		return line2;
@@ -93,8 +91,8 @@ public class ShippingAddress {
 		this.zipCode = zipCode;
 	}
 
-	public ShippingAddress(){
-		this.shippingAddressId=UUID.randomUUID().toString().substring(24).toUpperCase();
+	public ShippingAddress() {
+		this.shippingAddressId = "SHIP" + UUID.randomUUID().toString().substring(24).toUpperCase();
 	}
-	
+
 }
