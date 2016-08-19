@@ -71,14 +71,14 @@ constraint fk_cartItem_cartId foreign key (cartId) references cart(cartId)on del
 
 create table cardDetail(
 cardDetailId varchar(20),
-customerId varchar(20) not null unique,
+customerId varchar(20) not null ,
 cardNumber varchar(20) not null,
 expiryMonth varchar(5) not null,
 expiryYear varchar(4) not null,
 cvNumber varchar(4) not null ,
 nameOnCard varchar(50) not null,
 totalCost decimal(10,2) not null,
-constraint pk_cardDetail_cardDetailId primary key(cardDetailId),
+constraint pk_cardDetail_cardDetailId primary key (cardDetailId),
 constraint fk_cardDetail_customerId foreign key (customerId) references customer(customerId) on delete set null
 ); 
 
@@ -126,6 +126,14 @@ billingAddressId varchar(20) not null,
 constraint pk_orderDetail_orderDetailId primary key (orderDetailId),
 constraint fk_orderDetail_customerId  foreign key(customerId) references customer(customerId) on delete set null
 );
+
+delete from shippingaddress;
+delete from billingaddress;
+delete from cartItem;
+delete from cart;
+delete from orderedItems;
+delete from cardDetail;
+
 
 ALTER TABLE table_name
 ADD CONSTRAINT constraint_name
