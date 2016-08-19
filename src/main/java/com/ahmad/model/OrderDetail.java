@@ -1,5 +1,6 @@
 package com.ahmad.model;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Entity;
@@ -10,9 +11,17 @@ import org.springframework.stereotype.Component;
 @Entity
 @Component
 
-public class OrderDetail {
+public class OrderDetail implements Serializable{
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	private String orderDetailId;
+	
 	private String customerId;
 	private double grandTotal;
 	private String shippingAddressId;

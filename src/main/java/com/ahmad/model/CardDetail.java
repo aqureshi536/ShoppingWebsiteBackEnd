@@ -1,22 +1,33 @@
 package com.ahmad.model;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class CardDetail {
+public class CardDetail implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	private String cardDetailId;
 	private String customerId;
+	@NotBlank(message="Card number must be entered")
 	private String cardNumber;
+	@NotBlank(message="Expiry month must be selected")
 	private String expiryMonth;
+	@NotBlank(message="Expiry year must be selected")
 	private String expiryYear;
+	@NotBlank(message="CV number must be entered")
 	private String cvNumber;
+	@NotBlank(message="Name must be entered")
 	private String nameOnCard;
 	private double totalCost;
 

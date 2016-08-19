@@ -1,5 +1,6 @@
 package com.ahmad.model;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Entity;
@@ -10,21 +11,25 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class ShippingAddress {
+public class ShippingAddress implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	private String shippingAddressId;
 	private String customerId;
-	@NotBlank
-	private String line1;
-	@NotBlank
+	@NotBlank(message="Specify main address")
+	private String line1;	
 	private String line2;
-	@NotBlank
+	
+	@NotBlank(message="Specify city")
 	private String city;
-	@NotBlank
+	@NotBlank(message="Specify state")
 	private String state;
-	@NotBlank
+	@NotBlank(message="Specify country")
 	private String country;
-	@NotBlank
+	@NotBlank(message="Specify zipcode")
 	private String zipCode;
 
 	public String getShippingAddressId() {

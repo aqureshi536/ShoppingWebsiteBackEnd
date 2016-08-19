@@ -69,7 +69,18 @@ constraint fk_cartItem_userName foreign key (customerId) references customer(cus
 constraint fk_cartItem_cartId foreign key (cartId) references cart(cartId)on delete cascade 
 );
 
-
+create table cardDetail(
+cardDetailId varchar(20),
+customerId varchar(20) not null unique,
+cardNumber varchar(20) not null,
+expiryMonth varchar(5) not null,
+expiryYear varchar(4) not null,
+cvNumber varchar(4) not null ,
+nameOnCard varchar(50) not null,
+totalCost decimal(10,2) not null,
+constraint pk_cardDetail_cardDetailId primary key(cardDetailId),
+constraint fk_cardDetail_customerId foreign key (customerId) references customer(customerId) on delete set null
+); 
 
 create table shippingAddress(
 shippingAddressId varchar(20),
@@ -94,6 +105,26 @@ state varchar(25) not null,
 country varchar(15) not null,
 zipCode varchar(7) not null,
 constraint fk_billingAddress_customerId foreign key (customerId) references customer(customerId) on delete cascade
+);
+
+create table orderedItems(
+orderedItemId varchar(20),
+customerId varchar(20),
+productId varchar(20),
+totalPrice decimal(10,2) not null,
+quantity decimal(10) not null,
+constraint pk_orderedItems_orderedItemId primary key (orderedItemId),
+constraint fk_orderedItems_customerId foreign key(customerId) references customer(customerId) on delete set null
+); 
+
+create table orderDetail(
+orderDetailId varchar(20),
+customerId varchar(20) not null,
+grandTotal decimal(20,2) not null,
+shippingAddressId varchar(20) not null,
+billingAddressId varchar(20) not null,
+constraint pk_orderDetail_orderDetailId primary key (orderDetailId),
+constraint fk_orderDetail_customerId  foreign key(customerId) references customer(customerId) on delete set null
 );
 
 ALTER TABLE table_name
