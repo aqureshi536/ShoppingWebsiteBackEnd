@@ -3,6 +3,7 @@ package com.ahmad.dao;
 import java.util.List;
 
 import com.ahmad.model.Cart;
+import com.ahmad.model.OrderedItems;
 
 public interface CartDAO {
 
@@ -14,7 +15,7 @@ public interface CartDAO {
 	
 	List<Cart> listCart();
 	
-	
+	List<OrderedItems> listOrderedItems(String customerId);
 	
 	/*Cart createCart(Cart cart);
 

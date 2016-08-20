@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ahmad.dao.CartDAO;
 import com.ahmad.model.Cart;
+import com.ahmad.model.OrderedItems;
 
 @Repository("cartDAO")
 public class CartDAOImpl implements CartDAO {
@@ -50,6 +51,14 @@ public class CartDAOImpl implements CartDAO {
 		List<Cart> listOfCarts = query.getResultList();
 		return listOfCarts;
 
+	}
+
+	@Override
+	public List<OrderedItems> listOrderedItems(String customerId) {
+		String hql = "from OrderedItems where customerId="+"'"+customerId+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<OrderedItems> listOfOrderedItems = query.getResultList();
+		return listOfOrderedItems;
 	}
 
 	
