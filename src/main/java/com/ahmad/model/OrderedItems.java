@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class OrderedItems implements Serializable{
+public class OrderedItems implements Serializable {
 	/**
 	 * 
 	 */
@@ -19,6 +19,7 @@ public class OrderedItems implements Serializable{
 	private String orderedItemId;
 	private String customerId;
 	private String productId;
+	private String productName;
 	private double totalPrice;
 	private int quantity;
 
@@ -44,6 +45,14 @@ public class OrderedItems implements Serializable{
 
 	public void setProductId(String productId) {
 		this.productId = productId;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	public double getTotalPrice() {

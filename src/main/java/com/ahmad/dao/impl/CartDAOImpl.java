@@ -53,7 +53,7 @@ public class CartDAOImpl implements CartDAO {
 
 	}
 
-	@Override
+	@Transactional
 	public List<OrderedItems> listOrderedItems(String customerId) {
 		String hql = "from OrderedItems where customerId="+"'"+customerId+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);

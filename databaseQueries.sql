@@ -11,8 +11,7 @@ quantity decimal(20),
 price decimal(10,2),
 Constraint pk_product_productid primary key (productId),
 Constraint fk_product_categoryid FOREIGN KEY(categoryid) references category(categoryid)on delete set null,
-constraint fk_product_supplierid Foreign key(supplierId) references supplier(supplierId)
-on delete set null
+constraint fk_product_supplierid Foreign key(supplierId) references supplier(supplierId)on delete set null
 );
 
 
@@ -111,6 +110,7 @@ create table orderedItems(
 orderedItemId varchar(20),
 customerId varchar(20),
 productId varchar(20),
+productName varchar(250),
 totalPrice decimal(10,2) not null,
 quantity decimal(10) not null,
 constraint pk_orderedItems_orderedItemId primary key (orderedItemId),
