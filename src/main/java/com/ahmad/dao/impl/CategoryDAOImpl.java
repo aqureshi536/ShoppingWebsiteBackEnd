@@ -63,7 +63,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Transactional
 	public List<Product> selectedCategoryProductList(String id)
 	{
-		String hql="from Product where categoryId=" + "'" + id + "'";
+		String hql="from Product where categoryId=" + "'" + id + "'"+"and isOutOffStock=" + "'" + false + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<Product> listSelectedProducts = query.getResultList();
 		return listSelectedProducts; 

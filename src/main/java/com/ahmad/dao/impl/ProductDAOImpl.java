@@ -63,13 +63,25 @@ public class ProductDAOImpl implements ProductDAO {
 	@Transactional
 	public List<Product> similarProducts(String productId) {
 		Product product = get(productId);
-			
+
 		String hql = "from Product where productId!=" + "'" + productId + "'" + "and" + " categoryId=" + "'"
-				+ product.getCategoryId() + "'" + "and supplierId!=" + "'" + product.getSupplierId() + "'"+"and isOutOffStock=" + "'" + false + "'";
+				+ product.getCategoryId() + "'" + "and supplierId!=" + "'" + product.getSupplierId() + "'"
+				+ "and isOutOffStock=" + "'" + false + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<Product> similarProductList = query.getResultList();
 		return similarProductList;
 
 	}
+
+	@Transactional
+	public List<Product> searchProduct(String keyword) {
+		String hql = "from Product p where lower(p.productName) like lower('%" + keyword + "%') and isOutOffStock="
+				+ "'" + false + "'";
+
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Product> listOfSearchedProducts = query.getResultList();
+		return listOfSearchedProducts;
+	}
+	
 
 }

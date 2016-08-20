@@ -17,5 +17,8 @@ public interface ProductDAO {
 	List<Product> listProductByStock();
 	
 	List<Product> similarProducts(String productId);
+
+	List<Product> searchProduct(String keyword);
 	
+
 }
