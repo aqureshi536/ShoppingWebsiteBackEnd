@@ -80,6 +80,16 @@ public class CategoryDAOImpl implements CategoryDAO {
 		return listSelectedProducts.size(); 
 		
 	
+	}
+
+	@Transactional
+	public List<Product> selectAllCategoryProducts(String categoryId) {
+
+		String hql="from Product where categoryId=" + "'" + categoryId + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Product> listSelectedProducts = query.getResultList();
+		return listSelectedProducts; 
+		
 	}	
 	
 

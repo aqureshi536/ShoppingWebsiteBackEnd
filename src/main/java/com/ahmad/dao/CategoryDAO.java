@@ -17,5 +17,7 @@ public interface CategoryDAO {
 	
 	List<Product> selectedCategoryProductList(String id);
 	
+	List<Product> selectAllCategoryProducts(String categoryId);
+	
 	int getProductCountByCategory(String id);	
 }

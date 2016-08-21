@@ -82,6 +82,15 @@ public class ProductDAOImpl implements ProductDAO {
 		List<Product> listOfSearchedProducts = query.getResultList();
 		return listOfSearchedProducts;
 	}
+
+	@Transactional
+	public List<Product> searchProductAdmin(String keyword) {
+		String hql = "from Product p where lower(p.productName) like lower('%" + keyword + "%')";
+
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Product> listOfSearchedProducts = query.getResultList();
+		return listOfSearchedProducts;
+	}
 	
 
 }

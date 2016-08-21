@@ -20,5 +20,7 @@ public interface ProductDAO {
 
 	List<Product> searchProduct(String keyword);
 	
+	List<Product> searchProductAdmin(String keyword);
+	
 
 }
