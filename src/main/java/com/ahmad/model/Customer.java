@@ -3,10 +3,13 @@ package com.ahmad.model;
 import java.io.Serializable;
 import java.util.UUID;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -20,9 +23,15 @@ public class Customer implements Serializable{
 	@Id
 	private String customerId;
 	
+	@Pattern(regexp="(^$|[0-9]{10})",message="Enter a 10 digit valid phone no")
 	private String phoneNo;
+	@NotBlank(message="Gender should be selected")
 	private String gender;
+	@NotBlank(message="Password should be filled")
+	@Length(min=8,message="Password should have minimum 8 characters")
 	private String password;
+	@NotBlank(message="Please enter a valid email Id")
+	@Email(message="Please enter a valid email Id")
 	private String username;
 
 	public String getCustomerId() {
