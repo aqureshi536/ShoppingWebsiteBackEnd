@@ -1,6 +1,3 @@
-//This is ApplicationContextConfig of backend
-//This is a comment
-
 package com.ahmad.config;
 
 import java.util.Properties;
@@ -89,7 +86,8 @@ public class ApplicationConfig {
 	}
 	@Bean
 	public MultipartResolver multipartResolver() {
-	    org.springframework.web.multipart.commons.CommonsMultipartResolver multipartResolver = new org.springframework.web.multipart.commons.CommonsMultipartResolver();
+	    org.springframework.web.multipart.commons.CommonsMultipartResolver multipartResolver = new org.springframework.web.
+	    		multipart.commons.CommonsMultipartResolver();
 	    multipartResolver.setMaxUploadSize(25000000);
 	    return multipartResolver;
 	}
