@@ -135,6 +135,10 @@ delete from orderedItems;
 delete from cardDetail;
 
 
+delete from customer where username='sunil@gmail.com';
+delete from customer where username='rakesh@gmail.com';
+
+
 ALTER TABLE table_name
 ADD CONSTRAINT constraint_name
    FOREIGN KEY (column1, column2, ... column_n)
