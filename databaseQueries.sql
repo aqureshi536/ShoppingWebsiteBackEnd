@@ -78,7 +78,7 @@ cvNumber varchar(4) not null ,
 nameOnCard varchar(50) not null,
 totalCost decimal(10,2) not null,
 constraint pk_cardDetail_cardDetailId primary key (cardDetailId),
-constraint fk_cardDetail_customerId foreign key (customerId) references customer(customerId) on delete set null
+constraint fk_cardDetail_customerId foreign key (customerId) references customer(customerId) on delete cascade
 ); 
 
 create table shippingAddress(
@@ -114,7 +114,7 @@ productName varchar(250),
 totalPrice decimal(10,2) not null,
 quantity decimal(10) not null,
 constraint pk_orderedItems_orderedItemId primary key (orderedItemId),
-constraint fk_orderedItems_customerId foreign key(customerId) references customer(customerId) on delete set null
+constraint fk_orderedItems_customerId foreign key(customerId) references customer(customerId) on delete cascade
 ); 
 
 create table orderDetail(

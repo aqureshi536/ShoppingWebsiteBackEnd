@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
@@ -30,6 +31,7 @@ public class ShippingAddress implements Serializable {
 	@NotBlank(message="Specify country")
 	private String country;
 	@NotBlank(message="Specify zipcode")
+	@Pattern(regexp="^[1-9][0-9]{5}$",message="Enter a valid zip code")
 	private String zipCode;
 
 	public String getShippingAddressId() {
