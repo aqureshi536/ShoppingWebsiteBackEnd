@@ -19,7 +19,7 @@ public class ProductTest {
 		productDAO.similarProducts("PRDE980E13FFCA0");
 		
 		
-	/*	product.setProductId("PRD003");
+		product.setProductId("PRD003");
 		product.setProductName("Bed1");
 		product.setDescription("This is  the first bed product");
 		product.setCategoryId("CAT002");
@@ -42,8 +42,8 @@ public class ProductTest {
 		}
 		
 		System.out.println(productDAO.listProduct().size());
-		//productDAO.delete("pro-002");
-*/		
+		productDAO.delete("pro-002");
+	
 		
 		
 	}
